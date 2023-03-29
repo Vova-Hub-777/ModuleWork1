@@ -19,3 +19,11 @@ def test_read_file(sample_files):
 
     assert file1_content == ["Line 1\n", "Line 2\n", "Line 3\n"]
     assert file2_content == ["Line 2\n", "Line 3\n", "Line 4\n"]
+
+
+@pytest.mark.parametrize("file_name", ["non_existent.txt", "another_non_existent.txt"])
+def test_read_file_not_found(file_name, capsys):
+    read_file(file_name)
+    captured = capsys.readouterr()
+
+    assert captured.out == f"File {file_name} was not found.\n"
