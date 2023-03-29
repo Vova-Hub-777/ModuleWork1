@@ -1,0 +1,7 @@
+# .gitignore
+# Output files
+same.txt
+diff.txt
+
+# Test report
+report.html
