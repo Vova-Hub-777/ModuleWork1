@@ -34,3 +34,7 @@ def main():
     write_file("diff.txt", diff_content)
 
     print("Comparison completed. Results saved in 'same.txt' and 'diff.txt'.")
+
+
+if __name__ == "__main__":
+    main()
