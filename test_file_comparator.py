@@ -27,3 +27,14 @@ def test_read_file_not_found(file_name, capsys):
     captured = capsys.readouterr()
 
     assert captured.out == f"File {file_name} was not found.\n"
+
+def test_write_file(tmpdir):
+    file_name = str(tmpdir.join("output.txt"))
+    content = ["Line 1\n", "Line 2\n"]
+
+    write_file(file_name, content)
+
+    with open(file_name, "r") as file:
+        written_content = file.readlines()
+
+    assert written_content == content
